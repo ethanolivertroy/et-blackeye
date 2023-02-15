@@ -1,0 +1,73 @@
+#!/bin/bash
+
+# Define menu options and their corresponding targets
+declare -A targets=(
+  ["Instagram"]="instagram"
+  ["Facebook"]="facebook"
+  ["Snapchat"]="snapchat"
+  ["Twitter"]="twitter"
+  ["Github"]="github"
+  ["Google"]="google"
+  ["Origin"]="origin"
+  ["Yahoo"]="yahoo"
+  ["Linkedin"]="linkedin"
+  ["Protonmail"]="protonmail"
+  ["Wordpress"]="wordpress"
+  ["Microsoft"]="microsoft"
+  ["IGFollowers"]="instafollowers"
+  ["Pinterest"]="pinterest"
+  ["Apple ID"]="apple"
+  ["Verizon"]="verizon"
+  ["DropBox"]="dropbox"
+  ["Line"]="line"
+  ["Shopify"]="shopify"
+  ["Messenger"]="messenger"
+  ["GitLab"]="gitlab"
+  ["Twitch"]="twitch"
+  ["MySpace"]="myspace"
+  ["Badoo"]="badoo"
+  ["VK"]="vk"
+  ["Yandex"]="yandex"
+  ["DevianART"]="devianart"
+  ["Wi-Fi"]="wifi"
+  ["PayPal"]="paypal"
+  ["Steam"]="steam"
+  ["Tiktok"]="tiktok"
+  ["Playstation"]="playstation"
+  ["Shopping"]="shopping"
+  ["Amazon"]="amazon"
+  ["iCloud"]="icloud"
+  ["Spotify"]="spotify"
+  ["Netflix"]="netflix"
+  ["Reddit"]="reddit"
+  ["StackOverflow"]="stackoverflow"
+  ["Custom"]="create"
+)
+
+# Display menu and get user selection
+function show_menu() {
+  clear
+  echo "Select a target:"
+  for i in "${!targets[@]}"; do
+    printf "%s\t%s\n" "$i" "${targets[$i]}"
+  done
+  read -p "Enter the target number: " option
+}
+
+# Run phishing attack against selected target
+function start_attack() {
+  target=${targets[$option]}
+  echo "Starting attack against $target"
+  # Replace with your attack logic
+}
+
+# Main program loop
+while true; do
+  show_menu
+  if [[ -n ${targets[$option]} ]]; then
+    start_attack
+  else
+    echo "Invalid option: $option"
+  fi
+  read -p "Press enter to continue..." enter
+done
